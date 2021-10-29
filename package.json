@@ -1,0 +1,16 @@
+{
+  "name": "rescript-react-embed-tweet",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "rescript",
+    "clean": "rescript clean -with-deps",
+    "start": "rescript build -w"
+  },
+  "keywords": [
+    "rescript"
+  ],
+  "author": "Denis Strelkov",
+  "dependencies": {
+    "rescript": "^9.1.4"
+  }
+}
