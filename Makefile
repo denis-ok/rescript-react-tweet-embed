@@ -1,4 +1,5 @@
 .PHONY: rescript-clean rescript-build rescript-start
+.PHONY: parcel-clean parcel-build parcel-start
 .PHONY: clean build start
 
 NODE_BINS = node_modules/.bin
@@ -30,5 +31,5 @@ build: clean
 	make rescript-build
 	make parcel-build
 
-start: clean rescript-build
-	make -j 2 rescript-start parcel-start
+start: clean
+	make rescript-build; make -j 2 rescript-start parcel-start
