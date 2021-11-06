@@ -1,5 +1,6 @@
 {
-  "name": "rescript-react-embed-tweet",
+  "name": "rescript-react-tweet-embed",
+  "homepage": "https://github.com/denis-ok/rescript-react-tweet-embed",
   "version": "0.0.1",
   "scripts": {
     "build": "rescript",
@@ -7,16 +8,31 @@
     "start": "rescript build -w"
   },
   "keywords": [
-    "rescript"
+    "rescript",
+    "react",
+    "twitter"
   ],
+  "files": [
+    "src",
+    "bsconfig.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denis-ok/rescript-react-tweet-embed.git"
+  },
   "author": "Denis Strelkov",
-  "dependencies": {
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
     "@rescript/react": "^0.10.3",
+    "react": ">=16.8.1",
+    "react-dom": ">=16.8.1"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.10.3",
+    "parcel": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rescript": "^9.1.4"
-  },
-  "devDependencies": {
-    "parcel": "^2.0.0"
   }
 }
