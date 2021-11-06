@@ -74,5 +74,5 @@ let make = (~id: string) => {
     None
   }, (twitterApi, id))
 
-  <div ref={ReactDOM.Ref.domRef(divRef)} />
+  <div key=id ref={ReactDOM.Ref.domRef(divRef)} />
 }
