@@ -1,5 +1,29 @@
 # rescript-react-tweet-embed
 
-- Build: `make build`
-- Clean: `make clean`
-- Build & watch: `make start`
+### ReScript React component to embed tweets.
+
+## Install
+
+```
+npm install rescript-react-tweet-embed
+```
+
+Add `rescript-react-tweet-embed` to your `bsconfig.json`:
+
+```json
+{
+  "bs-dependencies": ["rescript-react-tweet-embed"]
+}
+```
+
+## Usage
+
+```rescript
+<TweetEmbed id="1435927427662946317" />
+```
+
+## Development
+
+```
+make start
+```
