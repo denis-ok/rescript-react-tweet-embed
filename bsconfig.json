@@ -1,6 +1,6 @@
 {
   "name": "rescript-react-tweet-embed",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "sources": [
     {
       "dir": "src",
@@ -8,6 +8,7 @@
     },
     {
       "dir": "demo",
+      "type" : "dev",
       "subdirs": true
     }
   ],
