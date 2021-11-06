@@ -1,7 +1,7 @@
 {
   "name": "rescript-react-tweet-embed",
   "homepage": "https://github.com/denis-ok/rescript-react-tweet-embed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "rescript",
     "clean": "rescript clean -with-deps",
@@ -13,7 +13,7 @@
     "twitter"
   ],
   "files": [
-    "src",
+    "src/TweetEmbed.res",
     "bsconfig.json"
   ],
   "repository": {
