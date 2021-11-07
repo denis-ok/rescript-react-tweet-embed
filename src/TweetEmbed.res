@@ -15,7 +15,19 @@ module TwitterApi = {
   @send
   external createTweet: (widgets, string, Dom.element, 'a) => unit = "createTweet"
 
-  let createTweet = (t: t, id, element) => t->widgets->createTweet(id, element, Js.Obj.empty())
+  module Parameters = {
+    // https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference
+    type theme = [#dark | #light]
+
+    type t = {theme: theme}
+
+    let make = (~theme): t => {
+      theme: theme,
+    }
+  }
+
+  let createTweet = (t: t, id, element, parameters: Parameters.t) =>
+    t->widgets->createTweet(id, element, parameters)
 }
 
 type twitterScriptStatus = NotAdded | Loading | Loaded(TwitterApi.t)
@@ -61,14 +73,20 @@ let useTwitterApi = () => {
 }
 
 @react.component
-let make = (~className: option<string>=?, ~style: option<ReactDOM.style>=?, ~id: string) => {
+let make = (
+  ~className: option<string>=?,
+  ~id: string,
+  ~style: option<ReactDOM.style>=?,
+  ~theme: TwitterApi.Parameters.theme=#light,
+) => {
   let twitterApi = useTwitterApi()
 
   let divRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
 
   React.useEffect2(() => {
     switch (twitterApi, divRef.current->Js.Nullable.toOption) {
-    | (Some(twitterApi), Some(element)) => TwitterApi.createTweet(twitterApi, id, element)
+    | (Some(twitterApi), Some(element)) =>
+      TwitterApi.createTweet(twitterApi, id, element, TwitterApi.Parameters.make(~theme))
     | _ => ()
     }
     None
