@@ -61,7 +61,7 @@ let useTwitterApi = () => {
 }
 
 @react.component
-let make = (~id: string) => {
+let make = (~className: option<string>=?, ~style: option<ReactDOM.style>=?, ~id: string) => {
   let twitterApi = useTwitterApi()
 
   let divRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
@@ -74,5 +74,5 @@ let make = (~id: string) => {
     None
   }, (twitterApi, id))
 
-  <div key=id ref={ReactDOM.Ref.domRef(divRef)} />
+  <div ?className ?style key=id ref={ReactDOM.Ref.domRef(divRef)} />
 }
