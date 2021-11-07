@@ -2,6 +2,9 @@
 
 @val external window: {..} = "window"
 
+@set
+external setInnerHtml: (Dom.element, string) => unit = "innerHTML"
+
 module TwitterApi = {
   type t
 
@@ -83,14 +86,17 @@ let make = (
 
   let divRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
 
-  React.useEffect2(() => {
+  React.useEffect3(() => {
     switch (twitterApi, divRef.current->Js.Nullable.toOption) {
     | (Some(twitterApi), Some(element)) =>
       TwitterApi.createTweet(twitterApi, id, element, TwitterApi.Parameters.make(~theme))
     | _ => ()
     }
-    None
-  }, (twitterApi, id))
+    switch divRef.current->Js.Nullable.toOption {
+    | Some(element) => Some(() => element->setInnerHtml(""))
+    | None => None
+    }
+  }, (twitterApi, id, theme))
 
-  <div ?className ?style key=id ref={ReactDOM.Ref.domRef(divRef)} />
+  <div ?className ?style ref={ReactDOM.Ref.domRef(divRef)} />
 }

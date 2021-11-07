@@ -33,13 +33,27 @@ module App = {
   @react.component
   let make = () => {
     let (tweetId, setTweetId) = React.useState(() => getRandomTweetId())
+    let (theme, setTheme) = React.useState(() => #light)
 
     <div>
       <button onClick={_ => setTweetId(_ => getRandomTweetId())}>
         {"Random tweet"->React.string}
       </button>
+      <button
+        onClick={_ =>
+          setTheme(theme =>
+            switch theme {
+            | #light => #dark
+            | #dark => #light
+            }
+          )}>
+        {switch theme {
+        | #light => "Switch to dark theme"->React.string
+        | #dark => "Switch to light theme"->React.string
+        }}
+      </button>
       <h3> {"Tweet id: "->React.string} {tweetId->React.string} </h3>
-      <TweetEmbed id=tweetId />
+      <TweetEmbed id=tweetId theme />
     </div>
   }
 }
