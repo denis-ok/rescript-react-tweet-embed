@@ -53,7 +53,15 @@ module App = {
         }}
       </button>
       <h3> {"Tweet id: "->React.string} {tweetId->React.string} </h3>
-      <TweetEmbed id=tweetId theme />
+      <TweetEmbed
+        id=tweetId
+        theme
+        onLoad={element =>
+          switch element {
+          | Ok(element) => Js.log2("Tweet loaded: ", element)
+          | Error() => Js.log("Tweet failed to load")
+          }}
+      />
     </div>
   }
 }
