@@ -1,7 +1,8 @@
 {
   "name": "rescript-react-tweet-embed",
+  "description": "ReScript React component to embed tweets.",
   "homepage": "https://github.com/denis-ok/rescript-react-tweet-embed",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "build": "rescript",
     "clean": "rescript clean -with-deps",

@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Add `onLoad` prop.
+
 ## 0.1.2
 
 - Add `className`, `style`, `theme` props.

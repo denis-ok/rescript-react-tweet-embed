@@ -19,7 +19,15 @@ Add `rescript-react-tweet-embed` to your `bsconfig.json`:
 ## Usage
 
 ```rescript
-<TweetEmbed id="1435927427662946317" />
+<TweetEmbed
+  id="1435927427662946317"
+  theme=#dark
+  onLoad={element =>
+    switch element {
+    | Ok(element) => Js.log2("Tweet loaded: ", element)
+    | Error() => Js.log("Tweet failed to load")
+    }}
+/>
 ```
 
 ## Development
